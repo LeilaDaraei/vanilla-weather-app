@@ -2,7 +2,8 @@ body {
   background: rgb(248, 246, 252);
 }
 .container {
-  width: 700px;
+  margin: 60px auto;
+  max-width: 800px;
 }
 .box {
   background: #fff;
@@ -11,7 +12,6 @@ body {
   color: #878787;
   font-family: Cerebri-Sans, Helvetica, Arial, sans-serif;
   padding: 40px;
-  margin: 60px auto;
 }
 
 img {
@@ -34,6 +34,10 @@ form {
   height: 50px;
   line-height: 20px;
   padding: 15px 20px;
+}
+.search-input::placeholder {
+  line-height: 20px;
+  color: rgba(39, 33, 66, 0.4);
 }
 .btn {
   background: #885df1;
