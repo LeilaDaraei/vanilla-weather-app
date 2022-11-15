@@ -23,6 +23,7 @@ form {
   margin-top: 40px;
   padding-bottom: 30px;
 }
+
 .search-input {
   background: #f9f7fe;
   border: none;
@@ -47,8 +48,12 @@ form {
 }
 h1 {
   color: #272142;
-  font-weight: bold;
+  font-size: 38px;
+  font-weight: 700;
+  line-height: 48px;
+  margin: 20px 0 10px;
 }
+
 ul {
   margin: 0;
   padding: 0;
@@ -60,6 +65,11 @@ li {
   line-height: 20px;
   list-style: none;
 }
+li strong {
+  color: #f65282;
+  font-weight: 400;
+}
+
 .temp {
   margin-left: 180px;
   margin-top: 30px;
