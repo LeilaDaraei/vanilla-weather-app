@@ -15,48 +15,55 @@
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
-    <div class="box">
-      <div class="container">
+    <div class="container">
+      <div class="box">
         <img
           src="https://www.weather.shecodes.io/images/logo.png"
           alt="SheCodes Logo"
         />
-      </div>
-      <form>
-        <div class="row">
-          <div class="col-9">
-            <input
-              type="search"
-              placeholder="Enter a city..."
-              class="form-control search-input"
-            />
+
+        <form>
+          <div class="row">
+            <div class="col-9">
+              <input
+                type="search"
+                placeholder="Enter a city..."
+                class="form-control search-input"
+              />
+            </div>
+            <div class="col-3 p-0">
+              <input
+                type="submit"
+                class="btn btn-primary w-100"
+                value="Search"
+              />
+            </div>
           </div>
-          <div class="col-3 p-0">
-            <input type="submit" class="btn btn-primary w-100" value="Search" />
+        </form>
+        <div class="weather">
+          <div class="row">
+            <div class="col-6">
+              <h1>Kermanshah</h1>
+              <ul>
+                <li>Tuesday 12:57, few clouds</li>
+                <li>Humidity: 74%, Wind: 2.68km/h</li>
+              </ul>
+            </div>
+            <div class="col-lg-6 col-md-6 col-sm-8">
+              <div class="temp">
+                <span class="temperature">9</span>
+                <span class="unit">°C</span>
+              </div>
+            </div>
           </div>
         </div>
-      </form>
-      <div class="weather">
-        <div class="row">
-          <div class="col-6">
-            <h1>Kermanshah</h1>
-            <ul>
-              <li>Tuesday 12:57, few clouds</li>
-              <li>Humidity: 74%, Wind: 2.68km/h</li>
-            </ul>
-          </div>
-          <div class="col-lg-6 col-md-6 col-sm-8">
-            <span class="temperature">9</span>
-            <span class="unit">°C</span>
-          </div>
-        </div>
+        <footer>
+          This project was coded by
+          <a href="https://github.com/LeilaDaraei" target="_blank"
+            >Leila Daraei</a
+          >
+        </footer>
       </div>
-      <footer>
-        This project was coded by
-        <a href="https://github.com/LeilaDaraei" target="_blank"
-          >Leila Daraei</a
-        >
-      </footer>
     </div>
     <script src="app.js"></script>
   </body>
