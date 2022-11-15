@@ -13,3 +13,7 @@ body {
 }
 .container {
 }
+img {
+  max-width: 150px;
+  display: block;
+}
