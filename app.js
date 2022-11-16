@@ -51,10 +51,10 @@ let url = `https://api.shecodes.io/weather/v1/current?query=${query}&key=${apiKe
 
 axios.get(url).then(displayTemp);
 
-// function showCityTemp(event) {
-//   event.preventDefault();
-//   let city = document.querySelector(".frm.value");
-// }
+function showCityTemp(event) {
+  event.preventDefault();
+  let city = document.querySelector(".frm.value");
+}
 
-// let submitbtn = document.querySelector("#submit");
-// submitbtn.addEventListener("submit", showCityTemp);
+let form = document.querySelector("#search-form");
+form.addEventListener("submit", showCityTemp);
