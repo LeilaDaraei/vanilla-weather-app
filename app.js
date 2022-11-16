@@ -34,6 +34,8 @@ function displayTemp(response) {
   let speed = document.querySelector("#speed");
   let humidity = document.querySelector("#humidity");
   let time = document.querySelector("#hour");
+  let unit = document.querySelector(".unit");
+  unit.innerHTML = "°C";
 
   icon.setAttribute("src", iconElement);
   city.innerHTML = cityElement;
@@ -44,7 +46,7 @@ function displayTemp(response) {
   time.innerHTML = formatDate(timeElement);
 }
 let apiKey = "9f5f4t4a17f1b05b1oda4343d82d064d";
-let query = "kish";
+let query = "lisbon";
 let url = `https://api.shecodes.io/weather/v1/current?query=${query}&key=${apiKey}&units=metric`;
 
 axios.get(url).then(displayTemp);
