@@ -45,16 +45,19 @@ function displayTemp(response) {
   humidity.innerHTML = humidityElement + " %";
   time.innerHTML = formatDate(timeElement);
 }
-let apiKey = "9f5f4t4a17f1b05b1oda4343d82d064d";
-let query = "lisbon";
-let url = `https://api.shecodes.io/weather/v1/current?query=${query}&key=${apiKey}&units=metric`;
-
-axios.get(url).then(displayTemp);
-
-function showCityTemp(event) {
-  event.preventDefault();
-  let city = document.querySelector(".frm.value");
+function search(city) {
+  let apiKey = "9f5f4t4a17f1b05b1oda4343d82d064d";
+  let url = `https://api.shecodes.io/weather/v1/current?query=${city}&key=${apiKey}&units=metric`;
+  axios.get(url).then(displayTemp);
 }
 
+function handleSubmit(event) {
+  event.preventDefault();
+  let cityInput = document.querySelector("#city-input");
+  search(cityInput.value);
+}
+
+search("Hamburg");
+
 let form = document.querySelector("#search-form");
-form.addEventListener("submit", showCityTemp);
+form.addEventListener("submit", handleSubmit);
