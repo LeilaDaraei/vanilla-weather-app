@@ -13,19 +13,21 @@ function formatDate(timestamp) {
     "Friday",
     "Saturday",
   ];
-  return `${weekDays[day]} ${("0" + hours).slice(-2)}:${("0" + minutes).slice(-2)}`;
+  return `${weekDays[day]} ${("0" + hours).slice(-2)}:${("0" + minutes).slice(
+    -2
+  )}`;
 }
 
 function displayTemp(response) {
   let cityElement = response.data.city;
   let currentTempElement = Math.round(response.data.temperature.current);
   let descriptionElement = response.data.condition.description;
-  let iconElement = response.data.condition["icon_url"];
+  let iconElement = `http://shecodes-assets.s3.amazonaws.com/api/weather/icons/${response.data.condition.icon}.png`;
   let speedElement = Math.round(response.data.wind.speed);
   let humidityElement = response.data.temperature.humidity;
   let timeElement = response.data.time * 1000;
   console.log(response.data);
-  let icon = document.querySelector(".icon");
+  let icon = document.querySelector("#icon");
   let city = document.querySelector("#city");
   let temp = document.querySelector("#temperature");
   let description = document.querySelector("#description");
@@ -33,7 +35,7 @@ function displayTemp(response) {
   let humidity = document.querySelector("#humidity");
   let time = document.querySelector("#hour");
 
-  icon.innerHTML = iconElement;
+  icon.setAttribute("src", iconElement);
   city.innerHTML = cityElement;
   temp.innerHTML = currentTempElement;
   description.innerHTML = descriptionElement;
@@ -42,7 +44,7 @@ function displayTemp(response) {
   time.innerHTML = formatDate(timeElement);
 }
 let apiKey = "9f5f4t4a17f1b05b1oda4343d82d064d";
-let query = "London";
+let query = "kish";
 let url = `https://api.shecodes.io/weather/v1/current?query=${query}&key=${apiKey}&units=metric`;
 
 axios.get(url).then(displayTemp);
