@@ -26,7 +26,7 @@ function displayTemp(response) {
   let speedElement = Math.round(response.data.wind.speed);
   let humidityElement = response.data.temperature.humidity;
   let timeElement = response.data.time * 1000;
-  console.log(response.data);
+
   let icon = document.querySelector("#icon");
   let city = document.querySelector("#city");
   let temp = document.querySelector("#temperature");
