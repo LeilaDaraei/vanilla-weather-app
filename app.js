@@ -13,7 +13,7 @@ function formatDate(timestamp) {
     "Friday",
     "Saturday",
   ];
-  return `${weekDays[day]} ${hours}:${minutes}`;
+  return `${weekDays[day]} ${("0" + hours).slice(-2)}:${("0" + minutes).slice(-2)}`;
 }
 
 function displayTemp(response) {
