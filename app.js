@@ -19,14 +19,6 @@ function formatDate(timestamp) {
 }
 
 function displayTemp(response) {
-  let cityElement = response.data.city;
-  let currentTempElement = Math.round(response.data.temperature.current);
-  let descriptionElement = response.data.condition.description;
-  let iconElement = `http://shecodes-assets.s3.amazonaws.com/api/weather/icons/${response.data.condition.icon}.png`;
-  let speedElement = Math.round(response.data.wind.speed);
-  let humidityElement = response.data.temperature.humidity;
-  let timeElement = response.data.time * 1000;
-
   let icon = document.querySelector("#icon");
   let city = document.querySelector("#city");
   let temp = document.querySelector("#temperature");
@@ -35,14 +27,21 @@ function displayTemp(response) {
   let humidity = document.querySelector("#humidity");
   let time = document.querySelector("#hour");
 
-  icon.setAttribute("src", iconElement);
-  city.innerHTML = cityElement;
-  temp.innerHTML = currentTempElement;
-  description.innerHTML = descriptionElement;
-  speed.innerHTML = speedElement + " km/h";
-  humidity.innerHTML = humidityElement + " %";
+  celciusTemp = response.data.temperature.current;
+
+  icon.setAttribute(
+    "src",
+    `http://shecodes-assets.s3.amazonaws.com/api/weather/icons/${response.data.condition.icon}.png`
+  );
+  city.innerHTML = response.data.city;
+  temp.innerHTML = Math.round(celciusTemp);
+  description.innerHTML = response.data.condition.description;
+  speed.innerHTML = Math.round(response.data.wind.speed) + " km/h";
+  humidity.innerHTML = response.data.temperature.humidity + " %";
+  let timeElement = response.data.time * 1000;
   time.innerHTML = formatDate(timeElement);
 }
+
 function search(city) {
   let apiKey = "9f5f4t4a17f1b05b1oda4343d82d064d";
   let url = `https://api.shecodes.io/weather/v1/current?query=${city}&key=${apiKey}&units=metric`;
@@ -55,15 +54,28 @@ function handleSubmit(event) {
   search(cityInput.value);
 }
 
-search("Hamburg");
+let celciusTemp = null;
 
 let form = document.querySelector("#search-form");
 form.addEventListener("submit", handleSubmit);
 
+function goFarenheit(event) {
+  event.preventDefault();
+  let farenheitTemp = (celciusTemp * 9) / 5 + 32;
+  let temperature = document.querySelector("#temperature");
+  temperature.innerHTML = Math.round(farenheitTemp);
+}
+
+function goCelcius(event) {
+  event.preventDefault();
+  let temperature = document.querySelector("#temperature");
+  temperature.innerHTML = Math.round(celciusTemp);
+}
+
 let farenheit = document.querySelector("#farenheit");
 farenheit.addEventListener("click", goFarenheit);
 
-function goFarenheit(event){
-    event.preventDefault();
-    
-}
+let celcius = document.querySelector("#celcius");
+celcius.addEventListener("click", goCelcius);
+
+search("Hamburg");
