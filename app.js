@@ -34,8 +34,6 @@ function displayTemp(response) {
   let speed = document.querySelector("#speed");
   let humidity = document.querySelector("#humidity");
   let time = document.querySelector("#hour");
-  let unit = document.querySelector(".unit");
-  unit.innerHTML = "°C";
 
   icon.setAttribute("src", iconElement);
   city.innerHTML = cityElement;
@@ -61,3 +59,11 @@ search("Hamburg");
 
 let form = document.querySelector("#search-form");
 form.addEventListener("submit", handleSubmit);
+
+let farenheit = document.querySelector("#farenheit");
+farenheit.addEventListener("click", goFarenheit);
+
+function goFarenheit(event){
+    event.preventDefault();
+    
+}
