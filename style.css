@@ -96,13 +96,13 @@ li strong {
   position: relative;
   top: -42px;
 }
-#celcius {
-  color: #212121;
-  cursor: default;
-  text-decoration: none;
-}
 .unit a {
   color: #ab8ee8;
+  text-decoration: none;
+}
+.unit .active {
+  color: #212121;
+  cursor: default;
   text-decoration: none;
 }
 .forecast {

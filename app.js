@@ -61,6 +61,8 @@ form.addEventListener("submit", handleSubmit);
 
 function goFarenheit(event) {
   event.preventDefault();
+  celcius.classList.remove("active");
+  farenheit.classList.add("active");
   let farenheitTemp = (celciusTemp * 9) / 5 + 32;
   let temperature = document.querySelector("#temperature");
   temperature.innerHTML = Math.round(farenheitTemp);
@@ -68,6 +70,8 @@ function goFarenheit(event) {
 
 function goCelcius(event) {
   event.preventDefault();
+  farenheit.classList.remove("active");
+  celcius.classList.add("active");
   let temperature = document.querySelector("#temperature");
   temperature.innerHTML = Math.round(celciusTemp);
 }
