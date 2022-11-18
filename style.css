@@ -77,6 +77,11 @@ li strong {
   margin-left: 90px;
   margin-top: 20px;
 }
+.icon{
+  display: block;
+  margin:0 auto;
+  
+}
 .temp {
   margin-left: 180px;
   margin-top: -90px;
