@@ -21,7 +21,7 @@ function formatDay(timestamp) {
   let date = new Date(timestamp * 1000);
   let day = date.getDay();
 
-  let days = ["Sun","Mon", "Tue", "Wed", "Thu", "Fri","Sat"];
+  let days = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
   return days[day];
 }
 
@@ -105,28 +105,5 @@ let celciusTemp = null;
 
 let form = document.querySelector("#search-form");
 form.addEventListener("submit", handleSubmit);
-
-function goFarenheit(event) {
-  event.preventDefault();
-  celcius.classList.remove("active");
-  farenheit.classList.add("active");
-  let farenheitTemp = (celciusTemp * 9) / 5 + 32;
-  let temperature = document.querySelector("#temperature");
-  temperature.innerHTML = Math.round(farenheitTemp);
-}
-
-function goCelcius(event) {
-  event.preventDefault();
-  farenheit.classList.remove("active");
-  celcius.classList.add("active");
-  let temperature = document.querySelector("#temperature");
-  temperature.innerHTML = Math.round(celciusTemp);
-}
-
-let farenheit = document.querySelector("#farenheit");
-farenheit.addEventListener("click", goFarenheit);
-
-let celcius = document.querySelector("#celcius");
-celcius.addEventListener("click", goCelcius);
 
 search("Hamburg");
