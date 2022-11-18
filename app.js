@@ -1,4 +1,3 @@
-// let urlLonLat = `https://api.shecodes.io/weather/v1/current?lon=${lon}&lat=${lat}&key=${key}`;
 function formatDate(timestamp) {
   let date = new Date(timestamp);
   let hours = date.getHours();
@@ -18,34 +17,40 @@ function formatDate(timestamp) {
   )}`;
 }
 
-function displayForecast() {
+function displayForecast(response) {
+  console.log(response.data.daily);
   let forecastElement = document.querySelector("#forecast");
+
   let forecastHtml = `<div class="row">`;
-  forecastHtml =
-    forecastHtml +
-    `<div class="col-2">
-  <div class="day">Wed</div>
+
+  let days = ["Thurs", "Fri", "Sat", "Sun", "Mon"];
+  days.forEach(function (day) {
+    forecastHtml =
+      forecastHtml +
+      `<div class="col">
+  <div class="day">${day}</div>
   <img class="icon" src="" />
   <div class="dayTemp">
     <span class="max">33</span><span class="min">22</span>
   </div>
 </div>
 `;
-  forecastHtml =
-    forecastHtml +
-    `<div class="col-2">
-  <div class="day">Wed</div>
-  <img class="icon" src="" />
-  <div class="dayTemp">
-    <span class="max">33</span><span class="min">22</span>
-  </div>
-</div></div>
-`;
+  });
+
   forecastHtml = forecastHtml + "</div>";
 
   forecastElement.innerHTML = forecastHtml;
 }
 
+function getForecast(city) {
+  console.log(city);
+
+  let apiKey = "9f5f4t4a17f1b05b1oda4343d82d064d";
+
+  let url = `https://api.shecodes.io/weather/v1/forecast?query=${city}&key=${apiKey}&units=metric`;
+
+  axios.get(url).then(displayForecast);
+}
 function displayTemp(response) {
   let icon = document.querySelector("#icon");
   let city = document.querySelector("#city");
@@ -68,6 +73,7 @@ function displayTemp(response) {
   humidity.innerHTML = response.data.temperature.humidity + " %";
   let timeElement = response.data.time * 1000;
   time.innerHTML = formatDate(timeElement);
+  getForecast(response.data.city);
 }
 
 function search(city) {
@@ -111,4 +117,3 @@ let celcius = document.querySelector("#celcius");
 celcius.addEventListener("click", goCelcius);
 
 search("Hamburg");
-displayForecast();
