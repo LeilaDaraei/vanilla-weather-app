@@ -73,17 +73,15 @@ function displayTemp(response) {
   let humidity = document.querySelector("#humidity");
   let time = document.querySelector("#hour");
 
-  celciusTemp = response.data.temperature.current;
-
   icon.setAttribute(
     "src",
     `http://shecodes-assets.s3.amazonaws.com/api/weather/icons/${response.data.condition.icon}.png`
   );
   city.innerHTML = response.data.city;
-  temp.innerHTML = Math.round(celciusTemp);
+  temp.innerHTML = Math.round(response.data.temperature.current);
   description.innerHTML = response.data.condition.description;
-  speed.innerHTML = Math.round(response.data.wind.speed) + " km/h";
-  humidity.innerHTML = response.data.temperature.humidity + " %";
+  speed.innerHTML =response.data.wind.speed + "km/h";
+  humidity.innerHTML = response.data.temperature.humidity + "%";
   let timeElement = response.data.time * 1000;
   time.innerHTML = formatDate(timeElement);
   getForecast(response.data.city);
@@ -100,8 +98,6 @@ function handleSubmit(event) {
   let cityInput = document.querySelector("#city-input");
   search(cityInput.value);
 }
-
-let celciusTemp = null;
 
 let form = document.querySelector("#search-form");
 form.addEventListener("submit", handleSubmit);

@@ -14,7 +14,7 @@ body {
   padding: 40px;
 }
 
-img {
+.logo {
   max-width: 150px;
   display: block;
 }
@@ -82,7 +82,7 @@ li strong {
   margin: 0 auto;
 }
 .temp {
-  margin-left: 180px;
+  margin-left: 190px;
   margin-top: -90px;
 }
 #temperature {
@@ -90,7 +90,6 @@ li strong {
   font-size: 80px;
   font-weight: 700;
   line-height: 1;
-  /* margin-left: 10px; */
 }
 .unit {
   color: #212121;
