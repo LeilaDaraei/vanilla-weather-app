@@ -21,7 +21,7 @@ function formatDay(timestamp) {
   let date = new Date(timestamp * 1000);
   let day = date.getDay();
 
-  let days = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
+  let days = ["Sun","Mon", "Tue", "Wed", "Thu", "Fri","Sat"];
   return days[day];
 }
 
@@ -37,7 +37,7 @@ function displayForecast(response) {
   
   <img class="icon" src="http://shecodes-assets.s3.amazonaws.com/api/weather/icons/${
     forecastDay.condition.icon
-  }.png" />
+  }.png" width="70" />
   <div class="dayTemp">
     <span class="max">${Math.round(
       forecastDay.temperature.maximum
