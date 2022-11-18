@@ -18,6 +18,34 @@ function formatDate(timestamp) {
   )}`;
 }
 
+function displayForecast() {
+  let forecastElement = document.querySelector("#forecast");
+  let forecastHtml = `<div class="row">`;
+  forecastHtml =
+    forecastHtml +
+    `<div class="col-2">
+  <div class="day">Wed</div>
+  <img class="icon" src="" />
+  <div class="dayTemp">
+    <span class="max">33</span><span class="min">22</span>
+  </div>
+</div>
+`;
+  forecastHtml =
+    forecastHtml +
+    `<div class="col-2">
+  <div class="day">Wed</div>
+  <img class="icon" src="" />
+  <div class="dayTemp">
+    <span class="max">33</span><span class="min">22</span>
+  </div>
+</div></div>
+`;
+  forecastHtml = forecastHtml + "</div>";
+
+  forecastElement.innerHTML = forecastHtml;
+}
+
 function displayTemp(response) {
   let icon = document.querySelector("#icon");
   let city = document.querySelector("#city");
@@ -83,3 +111,4 @@ let celcius = document.querySelector("#celcius");
 celcius.addEventListener("click", goCelcius);
 
 search("Hamburg");
+displayForecast();
