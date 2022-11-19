@@ -47,6 +47,9 @@ form {
   height: 50px;
   padding: 15px 0;
 }
+.btn:hover {
+  background: #885df1;
+}
 .weather {
   margin-top: 20px;
 }
